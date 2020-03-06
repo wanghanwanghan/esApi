@@ -20,6 +20,7 @@
       <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/jeremeamia/superclosure" />
+      <path value="$PROJECT_DIR$/vendor/easyswoole/mysqli" />
     </include_path>
   </component>
 </project>

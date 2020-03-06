@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "557b840723750b289aa4d6314ae20973",
+    "content-hash": "189bc4aa3d90bed39dd25aef40390f05",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -361,6 +361,55 @@
                 "swoole"
             ],
             "time": "2020-02-17T05:26:33+00:00"
+        },
+        {
+            "name": "easyswoole/redis",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/redis.git",
+                "reference": "a788b68947ff59bbcef1a1e09dc7891e7525cc49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github-api-proxy.cnpkg.org/repos/easy-swoole/redis/zipball/a788b68947ff59bbcef1a1e09dc7891e7525cc49",
+                "reference": "a788b68947ff59bbcef1a1e09dc7891e7525cc49",
+                "shasum": ""
+            },
+            "require": {
+                "easyswoole/spl": "^1.2",
+                "ext-swoole": "^4.4.0",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "easyswoole/phpunit": ">=1.0.0",
+                "easyswoole/swoole-ide-helper": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\Redis\\": "src/"
+                }
+            },
+            "notification-url": "https://repo.packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "YF",
+                    "email": "291323003@qq.com"
+                }
+            ],
+            "description": "easyswoole component",
+            "homepage": "https://www.easyswoole.com/",
+            "keywords": [
+                "async",
+                "easyswoole",
+                "framework",
+                "swoole"
+            ],
+            "time": "2020-01-18T04:39:26+00:00"
         },
         {
             "name": "easyswoole/spl",
