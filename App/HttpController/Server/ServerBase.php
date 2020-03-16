@@ -8,7 +8,9 @@ class ServerBase extends Index
 {
     public function index()
     {
-        $this->writeJson(200,['wanghan','duanran'],'success');
+        $req=$this->request();
+
+        $this->writeJson(200,$req->getRequestParam(),'success');
 
         return true;
     }
