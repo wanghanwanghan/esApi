@@ -3,12 +3,10 @@
 
 namespace App\HttpController;
 
-
 use EasySwoole\Http\AbstractInterface\Controller;
 
 class Index extends Controller
 {
-
     function index()
     {
         $file = EASYSWOOLE_ROOT.'/vendor/easyswoole/easyswoole/src/Resource/Http/welcome.html';
