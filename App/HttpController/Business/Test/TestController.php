@@ -35,10 +35,9 @@ class TestController extends BusinessBase
                 $table->indexUnique('username_index', 'username');//设置索引
             });
 
-            var_dump($sql);
-
-
             $mysql=Manager::getInstance()->get('mysql')->getObj();
+
+            $mysql->query($sql);
 
             Manager::getInstance()->get('mysql')->recycleObj($mysql);
         });
