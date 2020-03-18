@@ -12,8 +12,8 @@ class Router extends AbstractRouter
         //全局模式拦截下,路由将只匹配Router.php中的控制器方法响应,将不会执行框架的默认解析
         $this->setGlobalMode(true);
 
-        //App\HttpController\Rpc.php->index()
-        $routeCollector->get('/sb', '/Server/ServerBase/index');
+        $routeCollector->get('/test','/Business/Test/index');
+        $routeCollector->post('/test','/Business/Test/index');
 
 
 
