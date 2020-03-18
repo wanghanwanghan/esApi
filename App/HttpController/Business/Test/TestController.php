@@ -11,5 +11,7 @@ class TestController extends BusinessBase
         $request=$this->request()->getRequestParam();
 
         $this->writeJson(200,$request,'success');
+
+        return true;
     }
 }
