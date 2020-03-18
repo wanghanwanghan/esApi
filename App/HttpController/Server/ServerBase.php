@@ -3,6 +3,7 @@
 namespace App\HttpController\Server;
 
 use App\HttpController\Index;
+use EasySwoole\Component\Timer;
 use EasySwoole\RedisPool\Redis;
 
 class ServerBase extends Index
@@ -11,15 +12,19 @@ class ServerBase extends Index
     {
         $req=$this->request();
 
-        var_dump($req);
+        foreach ($req->getRequestParam() as $k=>$v)
+        {
+            go(function () use ($k,$v)
+            {
+                $redis=Redis::defer('redis');
+                $redis->set($k,$v);
+            });
+        }
 
+        //清除pool中的定时器
+        Timer::getInstance()->clearAll();
 
-
-
-
-
-
-        $this->writeJson(200,$req->getRequestParam(),'success');
+        $this->writeJson(200,[],'success');
 
         return true;
     }
