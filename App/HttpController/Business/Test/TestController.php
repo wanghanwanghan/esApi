@@ -26,7 +26,7 @@ class TestController extends BusinessBase
             go(function ()
             {
                 $obj=Redis::defer('redis');
-                $obj->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
+                $obj->select(1)->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
             });
         }
 
