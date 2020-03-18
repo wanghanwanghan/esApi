@@ -29,7 +29,7 @@ class TestController extends BusinessBase
 
                 $obj->select(mt_rand([0,7]));
 
-                $obj->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
+                $obj->set(123,123);
             });
         }
 
