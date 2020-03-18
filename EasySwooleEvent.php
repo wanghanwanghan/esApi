@@ -1,11 +1,12 @@
 <?php
 namespace EasySwoole\EasySwoole;
 
-
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
+use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\RedisPool\Redis;
 
 class EasySwooleEvent implements Event
 {
@@ -18,7 +19,15 @@ class EasySwooleEvent implements Event
 
     public static function mainServerCreate(EventRegister $register)
     {
-        // TODO: Implement mainServerCreate() method.
+        $conf=new RedisConfig();
+        $conf->setHost('47.106.169.68');
+        $conf->setPort('56379');
+        $conf->setAuth('wanghan123');
+
+        $redisPoolConfig=Redis::getInstance()->register('redis',$conf);
+        $redisPoolConfig->setMinObjectNum(5);
+        $redisPoolConfig->setMaxObjectNum(20);
+        $redisPoolConfig->setAutoPing(10);
     }
 
     public static function onRequest(Request $request, Response $response): bool
