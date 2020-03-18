@@ -40,7 +40,7 @@ class TestController extends BusinessBase
 
             $mysql=Manager::getInstance()->get('mysql')->getObj();
 
-            Manager::getInstance()->get('redis1')->recycleObj($mysql);
+            Manager::getInstance()->get('mysql')->recycleObj($mysql);
         });
 
 
