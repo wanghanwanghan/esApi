@@ -16,10 +16,9 @@ class ServerBase extends Index
         {
             go(function () use ($k,$v)
             {
+                sleep(mt_rand(1,10));
                 $redis=Redis::defer('redis');
                 $redis->set($k,$v);
-
-                sleep(3);
             });
         }
 
