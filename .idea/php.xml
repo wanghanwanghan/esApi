@@ -24,6 +24,7 @@
       <path value="$PROJECT_DIR$/vendor/easyswoole/redis" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/redis-pool" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/pool" />
+      <path value="$PROJECT_DIR$/vendor/easyswoole/ddl" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

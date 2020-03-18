@@ -6,7 +6,7 @@ use EasySwoole\Component\Singleton;
 use EasySwoole\Redis\Config\RedisConfig;
 use EasySwoole\RedisPool\Redis;
 
-class CreateRedis extends ServerBase
+class CreateRedisPool extends ServerBase
 {
     use Singleton;
 

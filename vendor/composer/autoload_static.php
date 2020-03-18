@@ -43,6 +43,8 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
             'EasySwoole\\Log\\' => 15,
             'EasySwoole\\Http\\' => 16,
             'EasySwoole\\EasySwoole\\' => 22,
+            'EasySwoole\\DDL\\Test\\' => 20,
+            'EasySwoole\\DDL\\' => 15,
             'EasySwoole\\Config\\Test\\' => 23,
             'EasySwoole\\Config\\' => 18,
             'EasySwoole\\Component\\Tests\\' => 27,
@@ -138,6 +140,14 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'EasySwoole\\EasySwoole\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/easyswoole/src',
+        ),
+        'EasySwoole\\DDL\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/ddl/test',
+        ),
+        'EasySwoole\\DDL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/ddl/src',
         ),
         'EasySwoole\\Config\\Test\\' => 
         array (

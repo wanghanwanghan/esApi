@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30f646317ab5a3e90a4fd50f44036648",
+    "content-hash": "ff20e9a517bf17246cadf5986fb055fa",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -178,6 +178,56 @@
                 "swoole"
             ],
             "time": "2019-07-30T03:08:09+00:00"
+        },
+        {
+            "name": "easyswoole/ddl",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/ddl.git",
+                "reference": "84dbada2c49115b2bacc6a4cc10b166205fae14a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/ddl/zipball/84dbada2c49115b2bacc6a4cc10b166205fae14a",
+                "reference": "84dbada2c49115b2bacc6a4cc10b166205fae14a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "easyswoole/spl": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\DDL\\": "src/",
+                    "EasySwoole\\DDL\\Test\\": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "YF",
+                    "email": "291323003@qq.com"
+                }
+            ],
+            "description": "An efficient swoole framework",
+            "homepage": "https://www.easyswoole.com/",
+            "keywords": [
+                "async",
+                "easyswoole",
+                "framework",
+                "swoole"
+            ],
+            "time": "2019-11-08T11:12:30+00:00"
         },
         {
             "name": "easyswoole/easyswoole",
