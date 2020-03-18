@@ -12,15 +12,21 @@ class ServerBase extends Index
     {
         $req=$this->request();
 
-        foreach ($req->getRequestParam() as $k=>$v)
+
+
+        for ($i=1000;$i--;)
         {
-            go(function () use ($k,$v)
+            go(function () use ($i)
             {
-                sleep(mt_rand(1,10));
                 $redis=Redis::defer('redis');
-                $redis->set($k,$v);
+                $redis->set($i,$i.'w');
             });
         }
+
+
+
+
+
 
         //清除pool中的定时器
         Timer::getInstance()->clearAll();
