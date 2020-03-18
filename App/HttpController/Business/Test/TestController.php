@@ -21,7 +21,7 @@ class TestController extends BusinessBase
 
     public function redisTest()
     {
-        for ($i=5000;$i--;)
+        for ($i=1000;$i--;)
         {
             go(function ()
             {
