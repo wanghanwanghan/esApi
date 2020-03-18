@@ -15,7 +15,7 @@ class Helper
 
         $res='';
 
-        for ($i=8;$i--;)
+        for ($i=$num;$i--;)
         {
             $res.=substr($str,mt_rand(0,61),1);
         }

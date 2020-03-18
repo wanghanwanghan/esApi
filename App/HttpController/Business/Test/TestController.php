@@ -14,7 +14,7 @@ class TestController extends BusinessBase
 
         $this->redisTest();
 
-        $this->writeJson(200,$request,'success');
+        $this->writeJson(200,Helper::getInstance()->str_random(),'success');
 
         return true;
     }
@@ -26,7 +26,6 @@ class TestController extends BusinessBase
             go(function ()
             {
                 $obj=Redis::defer('redis');
-                $obj->select(0);
                 $obj->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
             });
         }
