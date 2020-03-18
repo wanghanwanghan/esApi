@@ -21,15 +21,15 @@ class TestController extends BusinessBase
 
     public function redisTest()
     {
-        for ($i=1000;$i--;)
+        for ($i=5000;$i--;)
         {
             go(function ()
             {
                 $obj=Redis::defer('redis');
 
-                $obj->select(1);
+                $obj->select(mt_rand([0,7]));
 
-                $obj->set(123,321);
+                $obj->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
             });
         }
 
