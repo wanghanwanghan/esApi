@@ -12,7 +12,12 @@ class TestController extends BusinessBase
     {
         $request=$this->request()->getRequestParam();
 
-        $this->redisTest();
+
+
+
+
+
+
 
         $this->writeJson(200,Helper::getInstance()->str_random(),'success');
 
