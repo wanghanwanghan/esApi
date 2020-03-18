@@ -18,6 +18,8 @@ class ServerBase extends Index
             {
                 $redis=Redis::defer('redis');
                 $redis->set($k,$v);
+
+                sleep(3);
             });
         }
 
