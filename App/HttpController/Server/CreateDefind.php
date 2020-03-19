@@ -8,6 +8,8 @@ class CreateDefind
 {
     use Singleton;
 
+    private $rootPath;
+
     private function img()
     {
 
@@ -23,8 +25,12 @@ class CreateDefind
 
     }
 
-    public function createDefind()
+    public function createDefind($rootPath)
     {
+        $this->rootPath=$rootPath;
+
+        var_dump($rootPath);
+
         $this->img();
         $this->file();
         $this->video();

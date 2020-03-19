@@ -21,7 +21,7 @@ class EasySwooleEvent implements Event
     public static function mainServerCreate(EventRegister $register)
     {
         //注册常量
-        CreateDefind::getInstance()->createDefind();
+        CreateDefind::getInstance()->createDefind(__DIR__);
         //注册redis连接池
         CreateRedisPool::getInstance()->createRedis();
         //注册mysql连接池
