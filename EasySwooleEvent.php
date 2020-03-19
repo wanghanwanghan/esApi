@@ -24,7 +24,7 @@ class EasySwooleEvent implements Event
         CreateRedisPool::getInstance()->createRedis();
 
         //注册mysql连接池
-        Manager::getInstance()->register(new CreateMysqlPool(),'mysql');
+        CreateMysqlPool::getInstance()->createMysql();
     }
 
     public static function onRequest(Request $request, Response $response): bool
