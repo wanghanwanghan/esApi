@@ -41,5 +41,7 @@ class CreateMysqlPool extends AbstractPool
     public function createMysql()
     {
         Manager::getInstance()->register(CreateMysqlPool::getInstance(),'mysql');
+
+        return true;
     }
 }
