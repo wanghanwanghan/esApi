@@ -20,7 +20,7 @@ class CreateMysqlPool extends AbstractPool
             'host'     => '47.106.169.68',
             'port'     => 63306,
             'user'     => 'chinaiiss',
-            'password' => 'chinaiiss',
+            'password' => 'zbxlbj@2018*()',
             'database' => 'project',
             'timeout'  => 5,
             'charset'  => 'utf8mb4',
