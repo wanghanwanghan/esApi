@@ -4,8 +4,8 @@ namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Helper;
+use App\HttpController\Server\GetImagick;
 use EasySwoole\RedisPool\Redis;
-use Intervention\Image\ImageManager;
 
 class TestController extends BusinessBase
 {
@@ -14,9 +14,7 @@ class TestController extends BusinessBase
         $res=$this->request()->getUploadedFile('img');
 
 
-        $obj=new ImageManager(['driver' => 'imagick']);
-
-        $image=$obj->make($res->getTempName())->save('/wanghan.jpg');
+        //(new GetImagick())->getObj()->make($res->);
 
 
 
@@ -24,7 +22,7 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,$res->getTempName(),'success');
+        $this->writeJson(200,[$res->getTempName(),$res->getClientFilename(),$res->getClientMediaType()],'success');
 
         return true;
     }
