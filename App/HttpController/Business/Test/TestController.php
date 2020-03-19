@@ -5,7 +5,7 @@ namespace App\HttpController\Business\Test;
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Helper;
 use EasySwoole\RedisPool\Redis;
-use Intervention\Image\Image;
+use Intervention\Image\ImageManager;
 
 class TestController extends BusinessBase
 {
@@ -14,7 +14,9 @@ class TestController extends BusinessBase
         $res=$this->request()->getUploadedFile('img');
 
 
-        $img=Image::make($res->getTempName());
+        $obj=new ImageManager(['driver' => 'imagick']);
+
+        $image=$obj->make($res->getTempName());
 
 
 
