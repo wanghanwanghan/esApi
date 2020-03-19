@@ -40,6 +40,9 @@ class TestController extends BusinessBase
 
             $mysql=Manager::getInstance()->get('mysql')->getObj();
 
+            $mysql->queryBuilder()->get('china_area');
+
+            var_dump($mysql->execBuilder());
 
             Manager::getInstance()->get('mysql')->recycleObj($mysql);
         });

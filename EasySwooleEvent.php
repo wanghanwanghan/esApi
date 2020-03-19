@@ -7,6 +7,7 @@ use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
+use EasySwoole\Pool\Manager;
 
 class EasySwooleEvent implements Event
 {
@@ -23,8 +24,7 @@ class EasySwooleEvent implements Event
         CreateRedisPool::getInstance()->createRedis();
 
         //注册mysql连接池
-        CreateMysqlPool::getInstance()->createMysql();
-
+        Manager::getInstance()->register(new CreateMysqlPool(),'mysql');
     }
 
     public static function onRequest(Request $request, Response $response): bool
