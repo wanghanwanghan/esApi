@@ -20,7 +20,7 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,$res->getTempName(),'success');
+        $this->writeJson(200,$res->getStream(),'success');
 
         return true;
     }
