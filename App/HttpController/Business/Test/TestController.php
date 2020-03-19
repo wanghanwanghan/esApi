@@ -4,8 +4,8 @@ namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Helper;
-use EasySwoole\HttpClient\HttpClient;
 use EasySwoole\RedisPool\Redis;
+use Intervention\Image\Image;
 
 class TestController extends BusinessBase
 {
@@ -14,14 +14,15 @@ class TestController extends BusinessBase
         $res=$this->request()->getUploadedFile('img');
 
 
-
-
-        var_dump($res->getStream());
-
+        $img=Image::make($res->getTempName());
 
 
 
-        $this->writeJson(200,$res->getStream(),'success');
+
+
+
+
+        $this->writeJson(200,$res->getTempName(),'success');
 
         return true;
     }
