@@ -18,7 +18,7 @@ class TestController extends BusinessBase
         $res=$this->request()->getRequestParam();
         $res['random']=Helper::getInstance()->str_random();
 
-        $res['header']=$this->request()->getHeaders();
+        $res['header']=$this->request()->getHeader('authorization');
 
 
 
