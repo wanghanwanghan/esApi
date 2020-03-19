@@ -16,6 +16,7 @@ class TestController extends BusinessBase
     public function index()
     {
         $request=$this->request()->getRequestParam();
+        $request['random']=Helper::getInstance()->str_random();
 
 
 
@@ -36,7 +37,7 @@ class TestController extends BusinessBase
             });
 
             $mysql=Manager::getInstance()->get('mysql')->getObj();
-            
+
 
             Manager::getInstance()->get('mysql')->recycleObj($mysql);
         });
@@ -45,8 +46,7 @@ class TestController extends BusinessBase
 
 
 
-
-        $this->writeJson(200,Helper::getInstance()->str_random(),'success');
+        $this->writeJson(200,$request,'success');
 
         return true;
     }
