@@ -15,8 +15,10 @@ class TestController extends BusinessBase
 {
     public function index()
     {
-        $request=$this->request()->getRequestParam();
-        $request['random']=Helper::getInstance()->str_random();
+        $res=$this->request()->getRequestParam();
+        $res['random']=Helper::getInstance()->str_random();
+
+        $res['header']=$this->request()->getHeader('Authorization');
 
 
 
@@ -46,7 +48,7 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,$request,'success');
+        $this->writeJson(200,$res,'success');
 
         return true;
     }
