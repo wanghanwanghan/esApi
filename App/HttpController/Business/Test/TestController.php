@@ -16,6 +16,7 @@ class TestController extends BusinessBase
 
 
 
+        var_dump($res->getStream());
 
 
 
