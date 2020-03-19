@@ -17,6 +17,10 @@ class TestController extends BusinessBase
         //(new GetImagick())->getObj()->make($res->);
 
 
+        var_dump(IMGPATH);
+        var_dump(FILEPATH);
+        var_dump(VIDEOPATH);
+
 
 
 
