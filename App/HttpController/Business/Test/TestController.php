@@ -16,7 +16,7 @@ class TestController extends BusinessBase
 
         $obj=new ImageManager(['driver' => 'imagick']);
 
-        $image=$obj->make($res->getTempName());
+        $image=$obj->make($res->getTempName())->save('/wanghan.jpg');
 
 
 
