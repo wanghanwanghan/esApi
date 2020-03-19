@@ -29,6 +29,10 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         array (
             'Intervention\\Image\\' => 19,
         ),
+        'H' => 
+        array (
+            'Hashids\\' => 8,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -96,6 +100,10 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
+        'Hashids\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hashids/hashids/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

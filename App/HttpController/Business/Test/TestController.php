@@ -3,48 +3,44 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
-use App\HttpController\Helper;
-use App\HttpController\Server\GetImagick;
-use EasySwoole\RedisPool\Redis;
+use Hashids\Hashids;
 
 class TestController extends BusinessBase
 {
     public function index()
     {
-        $res=$this->request()->getUploadedFile('img');
-
-
-        //(new GetImagick())->getObj()->make($res->);
-
-
-        var_dump(IMGPATH);
-        var_dump(FILEPATH);
-        var_dump(VIDEOPATH);
 
 
 
-
-
-
-
-        $this->writeJson(200,[$res->getTempName(),$res->getClientFilename(),$res->getClientMediaType()],'success');
-
-        return true;
-    }
-
-    public function redisTest()
-    {
-        for ($i=1000;$i--;)
+        go(function ()
         {
-            go(function ()
-            {
-                $obj=Redis::defer('redis');
+            $obj=new Hashids();
 
-                $obj->select(mt_rand(0,7));
+            var_dump($obj->encode(12345));
 
-                $obj->set(Helper::getInstance()->str_random(),Helper::getInstance()->str_random());
-            });
-        }
+        });
+
+        go(function ()
+        {
+            $obj=new Hashids();
+
+            var_dump($obj->encode(12345));
+
+        });
+
+        go(function ()
+        {
+            $obj=new Hashids();
+
+            var_dump($obj->encode(12345));
+
+        });
+
+
+
+
+
+        $this->writeJson(200,[],'success');
 
         return true;
     }
