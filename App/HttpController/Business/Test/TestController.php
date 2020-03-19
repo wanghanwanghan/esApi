@@ -23,11 +23,12 @@ class TestController extends BusinessBase
         go(function ()
         {
             $url = 'http://data.meirixindong.com/api/xdjc/cw/cwsb';
+
             $test = new HttpClient($url);
 
-            $test->setHeader('Authorization','Token 12XPldEa8YWnZzBQJwGoVNemyvLxbqjR');
+            $test->setHeader('Authorization','Token 12XPldEa8YWnZzBQJwGoVNemyvLxbqjR',false);
 
-            $ret = $test->postJSON(json_encode(['nsrsbh'=>911101057959995585]));
+            $ret=$test->postJSON(json_encode(['nsrsbh'=>911101057959995585]));
 
             var_dump($ret->getBody());
         });
