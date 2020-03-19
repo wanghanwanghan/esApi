@@ -11,27 +11,7 @@ class TestController extends BusinessBase
 {
     public function index()
     {
-        $res=$this->request()->getRequestParam();
-        $res['random']=Helper::getInstance()->str_random();
-
-        $res['header']=$this->request()->getHeader('authorization');
-
-
-
-
-
-        go(function ()
-        {
-            $url = 'http://data.meirixindong.com/api/xdjc/cw/cwsb';
-
-            $test = new HttpClient($url);
-
-            $test->setHeader('Authorization','Token 12XPldEa8YWnZzBQJwGoVNemyvLxbqjR',false);
-
-            $ret=$test->postJSON(json_encode(['nsrsbh'=>911101057959995585]));
-
-            var_dump($ret->getBody());
-        });
+        $res=$this->request()->getUploadedFile('img');
 
 
 
@@ -39,7 +19,8 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,$res,'success');
+
+        $this->writeJson(200,$res->getTempName(),'success');
 
         return true;
     }
