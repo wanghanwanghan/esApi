@@ -31,6 +31,7 @@ class CreateMysqlPool extends AbstractPool
 
     protected function createObject()
     {
-        return new Client($this->mysqlConf);
+        $obj=new Client($this->mysqlConf);
+        return $obj;
     }
 }
