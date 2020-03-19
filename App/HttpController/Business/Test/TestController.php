@@ -22,12 +22,12 @@ class TestController extends BusinessBase
 
         go(function ()
         {
-            $url = 'https/www.baidu.com';
+            $url = 'http://data.meirixindong.com/api/xdjc/cw/cwsb';
             $test = new HttpClient($url);
 
-            $test->setHeader('myHeader','myHeader');
+            $test->setHeader('Authorization','Token 12XPldEa8YWnZzBQJwGoVNemyvLxbqjR');
 
-            $ret = $test->postJSON(json_encode(['json'=>1]));
+            $ret = $test->postJSON(json_encode(['nsrsbh'=>911101057959995585]));
 
             var_dump($ret->getBody());
         });
