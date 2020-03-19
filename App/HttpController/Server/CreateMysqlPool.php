@@ -38,6 +38,7 @@ class CreateMysqlPool extends AbstractPool
         return new Client($this->mysqlConf);
     }
 
+    //注册redis连接池，只能在mainServerCreate中用
     public function createMysql()
     {
         Manager::getInstance()->register(CreateMysqlPool::getInstance(),'mysql');

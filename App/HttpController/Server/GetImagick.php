@@ -6,11 +6,15 @@ use Intervention\Image\ImageManager;
 
 class GetImagick extends ServerBase
 {
-    public $obj;
+    private $obj;
+
+    private $driver='imagick';
 
     public function __construct()
     {
-        $this->obj=new ImageManager(['driver'=>'imagick']);
+        $this->obj=new ImageManager([
+            'driver'=>$this->driver
+        ]);
     }
 
     public function getObj()

@@ -22,7 +22,8 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,[$res->getTempName(),$res->getClientFilename(),$res->getClientMediaType()],'success');
+
+        $this->writeJson(200,[$res->getTempName(),$res->getClientFilename(),$res->getClientMediaType(),__DIR__],'success');
 
         return true;
     }
