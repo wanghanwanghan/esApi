@@ -9,7 +9,7 @@ class TestController extends BusinessBase
 {
     public function index()
     {
-        $ids=GetHashids::getInstance(['wanghan',6])->getObj();
+        $ids=GetHashids::getInstance(['wanghan',10])->getObj();
 
         $encode=$ids->encode(13800);
 
