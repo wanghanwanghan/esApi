@@ -11,11 +11,13 @@ class TestController extends BusinessBase
     {
         $ids=GetHashids::getInstance()->getObj();
 
+        $encode=$ids->encode(13800);
+
+        $decode=$ids->decode($encode);
 
 
 
-
-        $this->writeJson(200,$ids->decode('8qQIPx'),'success');
+        $this->writeJson(200,[$encode,$decode],'success');
 
         return true;
     }
