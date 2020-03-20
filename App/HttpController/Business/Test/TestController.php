@@ -33,7 +33,7 @@ class TestController extends BusinessBase
         {
             $obj=Manager::getInstance()->get('project')->getObj();
 
-            $obj->queryBuilder()->get('users');
+            $obj->queryBuilder()->get('user');
 
             var_dump($obj->execBuilder());
 
