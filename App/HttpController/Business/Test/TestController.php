@@ -38,7 +38,7 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,[$encode,$decode],'success');
+        $this->writeJson(200,[mt_rand(0,3),mt_rand(0,3),mt_rand(0,3)],'success');
 
         return true;
     }
