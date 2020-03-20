@@ -11,7 +11,7 @@ class GetHashids extends ServerBase
 
     private $obj;
 
-    private function __construct($salt=__DIR__,$minHashLength=6)
+    private function __construct($salt=__DIR__,$minHashLength=8)
     {
         $this->obj=new Hashids($salt,$minHashLength);
     }
