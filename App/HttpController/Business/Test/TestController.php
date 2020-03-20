@@ -3,6 +3,7 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
+use App\HttpController\Helper;
 use App\HttpController\Server\GetHashids;
 
 class TestController extends BusinessBase
@@ -18,27 +19,18 @@ class TestController extends BusinessBase
 
 
 
-        go(function ()
+
+        $res=[];
+
+        for ($i=10;$i--;)
         {
-            var_dump(md5(uniqid(mt_rand(),true)));
-        });
-
-        go(function ()
-        {
-            var_dump(md5(uniqid(mt_rand(),true)));
-        });
-
-        go(function ()
-        {
-            var_dump(md5(uniqid(mt_rand(),true)));
-        });
+            $res[]=Helper::getInstance()->randomUUID();
+        }
 
 
 
 
-
-
-        $this->writeJson(200,[mt_rand(0,3),mt_rand(0,3),mt_rand(0,3)],'success');
+        $this->writeJson(200,$res,'success');
 
         return true;
     }

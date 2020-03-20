@@ -22,4 +22,12 @@ class Helper
 
         return $res;
     }
+
+    //生成32为随机字符串
+    public function randomUUID()
+    {
+        mt_srand();
+
+        return md5(uniqid(mt_rand(),true));
+    }
 }
