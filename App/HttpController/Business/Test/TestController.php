@@ -17,33 +17,13 @@ class TestController extends BusinessBase
         $decode=$ids->decode($encode);
 
 
-        go(function ()
-        {
-            $obj=Manager::getInstance()->get('log')->getObj();
-
-            $obj->queryBuilder()->get('123123123123');
-
-            var_dump($obj->execBuilder());
-
-            Manager::getInstance()->get('log')->recycleObj($obj);
-        });
-
-
-        go(function ()
-        {
-            $obj=Manager::getInstance()->get('project')->getObj();
-
-            $obj->queryBuilder()->get('user');
-
-            var_dump($obj->execBuilder());
-
-            Manager::getInstance()->get('project')->recycleObj($obj);
-        });
 
 
 
 
-        $this->writeJson(200,[],'success');
+
+
+        $this->writeJson(200,[$encode,$decode],'success');
 
         return true;
     }
