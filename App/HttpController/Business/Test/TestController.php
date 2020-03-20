@@ -4,7 +4,6 @@ namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Server\GetHashids;
-use EasySwoole\Pool\Manager;
 
 class TestController extends BusinessBase
 {

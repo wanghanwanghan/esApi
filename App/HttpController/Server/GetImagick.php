@@ -15,6 +15,8 @@ class GetImagick extends ServerBase
 
     private function __construct()
     {
+        if (!extension_loaded('imagick')) $this->driver='gd';
+
         $this->obj=new ImageManager([
             'driver'=>$this->driver
         ]);
