@@ -15,7 +15,7 @@ class TestController extends BusinessBase
 
 
 
-        $this->writeJson(200,$ids->encode(123,321),'success');
+        $this->writeJson(200,$ids->decode('8qQIPx'),'success');
 
         return true;
     }
