@@ -21,7 +21,7 @@ class TestController extends BusinessBase
         {
             $obj=Manager::getInstance()->get('log')->getObj();
 
-            $obj->queryBuilder()->get('china_area');
+            $obj->queryBuilder()->get('123123123123');
 
             var_dump($obj->execBuilder());
 
