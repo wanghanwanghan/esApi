@@ -9,11 +9,32 @@ class TestController extends BusinessBase
 {
     public function index()
     {
-        $ids=GetHashids::getInstance('wanghan','10')->getObj();
+        $ids=GetHashids::getInstance()->getObj();
 
         $encode=$ids->encode(13800);
 
         $decode=$ids->decode($encode);
+
+
+
+
+        go(function ()
+        {
+            var_dump(md5(uniqid(mt_rand(),true)));
+        });
+
+        go(function ()
+        {
+            var_dump(md5(uniqid(mt_rand(),true)));
+        });
+
+        go(function ()
+        {
+            var_dump(md5(uniqid(mt_rand(),true)));
+        });
+
+
+
 
 
 
