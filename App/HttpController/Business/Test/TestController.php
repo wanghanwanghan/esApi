@@ -3,8 +3,8 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
-use App\HttpController\Helper;
 use App\HttpController\Server\GetHashids;
+use EasySwoole\Pool\Manager;
 
 class TestController extends BusinessBase
 {
@@ -17,20 +17,33 @@ class TestController extends BusinessBase
         $decode=$ids->decode($encode);
 
 
-
-
-
-        $res=[];
-
-        for ($i=10;$i--;)
+        go(function ()
         {
-            $res[]=Helper::getInstance()->randomUUID();
-        }
+            $obj=Manager::getInstance()->get('log')->getObj();
+
+            $obj->queryBuilder()->get('china_area');
+
+            var_dump($obj->execBuilder());
+
+            Manager::getInstance()->get('log')->recycleObj($obj);
+        });
+
+
+        go(function ()
+        {
+            $obj=Manager::getInstance()->get('project')->getObj();
+
+            $obj->queryBuilder()->get('users');
+
+            var_dump($obj->execBuilder());
+
+            Manager::getInstance()->get('project')->recycleObj($obj);
+        });
 
 
 
 
-        $this->writeJson(200,$res,'success');
+        $this->writeJson(200,[],'success');
 
         return true;
     }

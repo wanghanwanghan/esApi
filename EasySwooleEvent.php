@@ -2,7 +2,8 @@
 namespace EasySwoole\EasySwoole;
 
 use App\HttpController\Server\CreateDefind;
-use App\HttpController\Server\CreateMysqlPool;
+use App\HttpController\Server\CreateMysqlPoolForLogDb;
+use App\HttpController\Server\CreateMysqlPoolForProjectDb;
 use App\HttpController\Server\CreateRedisPool;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -24,7 +25,8 @@ class EasySwooleEvent implements Event
         //注册redis连接池
         CreateRedisPool::getInstance()->createRedis();
         //注册mysql连接池
-        CreateMysqlPool::getInstance()->createMysql();
+        CreateMysqlPoolForProjectDb::getInstance()->createMysql();
+        CreateMysqlPoolForLogDb::getInstance()->createMysql();
     }
 
     public static function onRequest(Request $request, Response $response): bool

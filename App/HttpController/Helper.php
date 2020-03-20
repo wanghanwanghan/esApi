@@ -8,9 +8,17 @@ class Helper
 {
     use Singleton;
 
+    //和随机有关的函数重新播种
+    private function mtsrand()
+    {
+        return mt_srand();
+    }
+
     //随机字符串
     public function str_random($num=8)
     {
+        $this->mtsrand();
+
         $str='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
         $res='';
@@ -23,10 +31,10 @@ class Helper
         return $res;
     }
 
-    //生成32为随机字符串
+    //生成32位随机字符串
     public function randomUUID()
     {
-        mt_srand();
+        $this->mtsrand();
 
         return md5(uniqid(mt_rand(),true));
     }
