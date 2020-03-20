@@ -3,44 +3,19 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
-use Hashids\Hashids;
+use App\HttpController\Server\GetHashids;
 
 class TestController extends BusinessBase
 {
     public function index()
     {
-
-
-
-        go(function ()
-        {
-            $obj=new Hashids();
-
-            var_dump($obj->encode(12345));
-
-        });
-
-        go(function ()
-        {
-            $obj=new Hashids();
-
-            var_dump($obj->encode(12345));
-
-        });
-
-        go(function ()
-        {
-            $obj=new Hashids();
-
-            var_dump($obj->encode(12345));
-
-        });
+        $ids=GetHashids::getInstance()->getObj();
 
 
 
 
 
-        $this->writeJson(200,[],'success');
+        $this->writeJson(200,$ids->encode(123,321),'success');
 
         return true;
     }

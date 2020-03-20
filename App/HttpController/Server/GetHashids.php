@@ -3,26 +3,23 @@
 namespace App\HttpController\Server;
 
 use EasySwoole\Component\Singleton;
-use Intervention\Image\ImageManager;
+use Hashids\Hashids;
 
-class GetImagick extends ServerBase
+class GetHashids extends ServerBase
 {
     use Singleton;
 
     private $obj;
 
-    private $driver='imagick';
-
     private function __construct()
     {
-        $this->obj=new ImageManager([
-            'driver'=>$this->driver
-        ]);
+        $this->obj=new Hashids();
     }
 
     public function getObj()
     {
         return $this->obj;
     }
+
 
 }
