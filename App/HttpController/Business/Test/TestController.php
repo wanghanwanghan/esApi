@@ -21,8 +21,6 @@ class TestController extends BusinessBase
         parent::afterAction($actionName);
 
         echo '我的afterAction'.PHP_EOL;
-
-        var_dump($this->request()->getRequestParam());
     }
 
     public function index()
