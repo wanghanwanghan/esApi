@@ -9,13 +9,7 @@ class TestController extends BusinessBase
 {
     public function onRequest(?string $action): ?bool
     {
-        echo '我的onRequest'.PHP_EOL;
-
-
-
-        $this->writeJson(200,123,'waring');
-        return false;
-
+        echo 'TestController中的onRequest'.PHP_EOL;
 
         return parent::onRequest($action);
     }
