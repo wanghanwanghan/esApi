@@ -7,6 +7,14 @@ use App\HttpController\Server\GetHashids;
 
 class TestController extends BusinessBase
 {
+    public function onRequest(?string $action): ?bool
+    {
+
+        echo '我的controller'.PHP_EOL;
+
+        return parent::onRequest($action);
+    }
+
     public function index()
     {
         $ids=GetHashids::getInstance()->getObj();
