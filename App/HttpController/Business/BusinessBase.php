@@ -11,8 +11,10 @@ class BusinessBase extends Index
     //也是为了onRequest
     public function onRequest(?string $action): ?bool
     {
+        parent::onRequest($action);
+
         echo 'BusinessBase中的onRequest'.PHP_EOL;
 
-        return parent::onRequest($action);
+        return true;
     }
 }
