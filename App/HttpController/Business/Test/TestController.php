@@ -10,9 +10,18 @@ class TestController extends BusinessBase
     public function onRequest(?string $action): ?bool
     {
 
-        echo '我的controller'.PHP_EOL;
+        echo '我的onRequest'.PHP_EOL;
 
         return parent::onRequest($action);
+    }
+
+    public function afterAction(?string $actionName): void
+    {
+
+        echo '我的afterAction'.PHP_EOL;
+
+
+        parent::afterAction($actionName);
     }
 
     public function index()
