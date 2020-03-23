@@ -1,10 +1,12 @@
 <?php
 namespace EasySwoole\EasySwoole;
 
+use App\Crontab\TestCrontab;
 use App\HttpController\Server\CreateDefind;
 use App\HttpController\Server\CreateMysqlPoolForLogDb;
 use App\HttpController\Server\CreateMysqlPoolForProjectDb;
 use App\HttpController\Server\CreateRedisPool;
+use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
@@ -27,6 +29,12 @@ class EasySwooleEvent implements Event
         //注册mysql连接池
         CreateMysqlPoolForProjectDb::getInstance()->createMysql();
         CreateMysqlPoolForLogDb::getInstance()->createMysql();
+
+        //定时任务
+        Crontab::getInstance()->addTask(TestCrontab::class);
+
+
+
     }
 
     public static function onRequest(Request $request, Response $response): bool
