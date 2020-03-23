@@ -14,6 +14,7 @@ class TestController extends BusinessBase
 
 
         $this->writeJson(200,123,'waring');
+        return false;
 
 
         return parent::onRequest($action);
