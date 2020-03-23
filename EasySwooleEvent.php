@@ -39,12 +39,12 @@ class EasySwooleEvent implements Event
 
     public static function onRequest(Request $request, Response $response): bool
     {
-        echo '请求开始时间:'.time().PHP_EOL;
-        return true;
+        echo 'es的onRequest'.PHP_EOL;
+        return false;
     }
 
     public static function afterRequest(Request $request, Response $response): void
     {
-        echo '请求结束时间:'.time().PHP_EOL;
+        echo 'es的afterRequest'.PHP_EOL;
     }
 }
