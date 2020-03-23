@@ -40,7 +40,8 @@ class EasySwooleEvent implements Event
     public static function onRequest(Request $request, Response $response): bool
     {
         echo 'es的onRequest'.PHP_EOL;
-        return false;
+
+        return true;
     }
 
     public static function afterRequest(Request $request, Response $response): void
