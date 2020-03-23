@@ -10,11 +10,20 @@ class TestController extends BusinessBase
     public function onRequest(?string $action): ?bool
     {
         echo '我的onRequest'.PHP_EOL;
+
+
+
+        $this->writeJson(200,123,'waring');
+
+
+        return parent::onRequest($action);
     }
 
     public function afterAction(?string $actionName): void
     {
         echo '我的afterAction'.PHP_EOL;
+
+        parent::afterAction($actionName);
     }
 
     public function index()
