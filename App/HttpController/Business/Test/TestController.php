@@ -3,7 +3,7 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
-use EasySwoole\HttpClient\HttpClient;
+use App\HttpController\Server\DataSource\Fahai;
 
 class TestController extends BusinessBase
 {
@@ -21,14 +21,19 @@ class TestController extends BusinessBase
 
     public function index()
     {
+        $url='https://api.fahaicc.com/v2/query/sat?';
+        $data=[
+            'doc_type' => 'satparty_qs',
+            'keyword' => '小米',
+            'pageno' => 1,
+            'range'=>10
+        ];
+        $res=Fahai::getInstance()->sendPost($url,$data);
 
-        $cli=new HttpClient('http://easyswoole.com');
-
-        $response = $cli->get();
 
 
+        var_dump($res);
 
-        $this->writeJson(200,$response,'su');
 
         return true;
     }

@@ -4,6 +4,7 @@ namespace App\HttpController\Server\DataSource;
 
 use App\HttpController\Server\ServerBase;
 use EasySwoole\Component\Singleton;
+use EasySwoole\HttpClient\HttpClient;
 
 class Fahai extends ServerBase
 {
@@ -39,9 +40,7 @@ class Fahai extends ServerBase
             'args'=>$json_data
         ];
 
-        $response_data=curl_post($url, $data);
-
-        return $response_data;
+        return $this->curl($url,$data);
     }
 
 
