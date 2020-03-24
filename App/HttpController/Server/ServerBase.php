@@ -14,8 +14,8 @@ class ServerBase
 
         $cli->setEnableSSL(false);
 
-        $res=$cli->post($data);
+        $res=$cli->postJson($data);
 
-        return $res;
+        return $res->getBody();
     }
 }
