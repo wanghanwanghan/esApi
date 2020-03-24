@@ -32,7 +32,7 @@ class TestController extends BusinessBase
 
         //$res=Fahai::getInstance()->send($url,$data);
 
-        $res=['wanghan',$this->request()->getHeader('Authorization')];
+        $res=['wanghan',$this->request()->getHeader('authorization')];
 
 
         $this->writeJson(200,$res,'suc');
