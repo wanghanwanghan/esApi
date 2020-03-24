@@ -3,7 +3,7 @@
 namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
-use App\HttpController\Server\GetHashids;
+use EasySwoole\HttpClient\HttpClient;
 
 class TestController extends BusinessBase
 {
@@ -21,13 +21,14 @@ class TestController extends BusinessBase
 
     public function index()
     {
-        $ids=GetHashids::getInstance()->getObj();
 
-        $encode=$ids->encode(13800);
+        $cli=new HttpClient('http://easyswoole.com');
 
-        $decode=$ids->decode($encode);
+        $response = $cli->get();
 
-        $this->writeJson(200,[$encode,$decode],'success');
+
+
+        $this->writeJson(200,$response,'su');
 
         return true;
     }
