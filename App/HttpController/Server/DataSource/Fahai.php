@@ -10,5 +10,35 @@ class Fahai extends ServerBase
 {
     use Singleton;
 
+    private $token='25DwLghyWYbHM9P0OjwW';
 
+    public function send($url,$data)
+    {
+        $rt=time()*1000;
+
+        $data=[
+            'authCode'=>'25DwLghyWYbHM9P0OjwW',
+            'rt'=>$rt,
+            'sign'=>md5($this->token.$rt),
+            'args'=>json_encode([
+                'dataType'=>$data['dataType'],
+                'keyword'=>$data['keyword'],
+                'pageno'=>$data['pageno'],
+                'range'=>$data['range']
+            ])
+        ];
+
+        return $this->sendCurl($url,$data);
+    }
+
+    private function sendCurl($url,$data)
+    {
+        $cli=new HttpClient();
+
+        $cli->setUrl($url);
+
+        $cli->setEnableSSL(false);
+
+        return $cli->postJson($data)->getBody();
+    }
 }
