@@ -33,8 +33,6 @@ class TestController extends BusinessBase
 
 
 
-        echo storage_path();
-
 
 
         $this->writeJson(200,[$encode,$decode],'success');

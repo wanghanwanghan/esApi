@@ -2,12 +2,16 @@
 
 //如注册命令行支持、全局通用函数等功能
 
-function wanghanTest()
+function storage_path($directory)
 {
-    echo 'bootstarp中的wanghanTest'.PHP_EOL;
-}
+    $dir=__DIR__.DIRECTORY_SEPARATOR.'App'.DIRECTORY_SEPARATOR;
 
-function storage_path()
-{
-    return __DIR__.DIRECTORY_SEPARATOR.'APP'.DIRECTORY_SEPARATOR;
+    if (trim($directory)!='')
+    {
+        $dir.=$directory.DIRECTORY_SEPARATOR;
+
+        if (!is_dir($dir)) mkdir($dir,0777);
+    }
+
+    return $dir;
 }
