@@ -31,7 +31,7 @@ class TestController extends BusinessBase
         $res=Fahai::getInstance()->sendPost($url,$data);
 
 
-        $this->writeJson(200,json_decode($res,1),'suc');
+        $this->writeJson(200,$res,'suc');
 
 
         return true;
