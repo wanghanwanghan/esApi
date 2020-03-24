@@ -31,8 +31,6 @@ class Fahai extends ServerBase
             'range'=>$range
         ];
 
-        $json_data=json_encode($json_data);
-
         $data=[
             'authCode'=>$this->authCode,
             'rt'=>$rt,
