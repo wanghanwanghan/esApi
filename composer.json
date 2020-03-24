@@ -1,6 +1,7 @@
 {
     "require": {
         "ext-json": "*",
+        "ext-curl": "*",
         "easyswoole/easyswoole": "3.x",
         "easyswoole/mysqli": "^2.2",
         "easyswoole/redis": "^1.1",
