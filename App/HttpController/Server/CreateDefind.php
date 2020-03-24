@@ -46,6 +46,7 @@ class CreateDefind
     {
         $this->rootPath=$rootPath.DIRECTORY_SEPARATOR;
 
+        //注册目录
         $this->img();
         $this->file();
         $this->video();
