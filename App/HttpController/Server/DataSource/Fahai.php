@@ -23,8 +23,8 @@ class Fahai extends ServerBase
             'args'=>json_encode([
                 'dataType'=>$data['dataType'],
                 'keyword'=>$data['keyword'],
-                'pageno'=>$data['pageno'],
-                'range'=>$data['range']
+                'pageno'=>$data['pageno'] ?? 1,
+                'range'=>$data['range'] ?? 20
             ])
         ];
 
@@ -39,6 +39,6 @@ class Fahai extends ServerBase
 
         $cli->setEnableSSL(false);
 
-        return $cli->post($data)->getBody();
+        return json_decode($cli->post($data)->getBody(),1);
     }
 }

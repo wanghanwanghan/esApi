@@ -30,10 +30,9 @@ class TestController extends BusinessBase
             'range'=>10
         ];
 
-        $res=Fahai::getInstance()->send($url,$data);
+        //$res=Fahai::getInstance()->send($url,$data);
 
-        $res=json_decode($res,1);
-
+        $res=['wanghan',$this->request()->getHeader('Authorization')];
 
 
         $this->writeJson(200,$res,'suc');
