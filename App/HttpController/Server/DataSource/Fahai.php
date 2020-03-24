@@ -39,6 +39,6 @@ class Fahai extends ServerBase
 
         $cli->setEnableSSL(false);
 
-        return $cli->postJson($data)->getBody();
+        return $cli->post($data)->getBody();
     }
 }
