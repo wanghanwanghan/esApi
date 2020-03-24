@@ -33,18 +33,15 @@ class EasySwooleEvent implements Event
         Crontab::getInstance()->addTask(TestCrontab::class);
 
 
-
     }
 
     public static function onRequest(Request $request, Response $response): bool
     {
-        echo 'es的onRequest'.PHP_EOL;
-
         return true;
     }
 
     public static function afterRequest(Request $request, Response $response): void
     {
-        echo 'es的afterRequest'.PHP_EOL;
+
     }
 }

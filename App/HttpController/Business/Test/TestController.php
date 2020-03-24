@@ -11,16 +11,12 @@ class TestController extends BusinessBase
     {
         parent::onRequest($action);
 
-        echo 'TestController中的onRequest'.PHP_EOL;
-
         return true;
     }
 
     public function afterAction(?string $actionName): void
     {
         parent::afterAction($actionName);
-
-        echo '我的afterAction'.PHP_EOL;
     }
 
     public function index()
@@ -30,10 +26,6 @@ class TestController extends BusinessBase
         $encode=$ids->encode(13800);
 
         $decode=$ids->decode($encode);
-
-
-
-
 
         $this->writeJson(200,[$encode,$decode],'success');
 

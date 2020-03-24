@@ -12,13 +12,19 @@ class Router extends AbstractRouter
         //全局模式拦截下,路由将只匹配Router.php中的控制器方法响应,将不会执行框架的默认解析
         $this->setGlobalMode(true);
 
-        $routeCollector->get('/test','/Business/Test/TestController/index');
-        $routeCollector->post('/test','/Business/Test/TestController/index');
+        $this->routeInBusiness($routeCollector);
 
 
 
 
 
 
+    }
+
+    private function routeInBusiness(RouteCollector $routeCollector)
+    {
+        $routeCollector->addRoute(['GET','POST'],'/Business/Test/TestController','index');
+
+        return true;
     }
 }

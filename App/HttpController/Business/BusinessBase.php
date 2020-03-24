@@ -13,8 +13,12 @@ class BusinessBase extends Index
     {
         parent::onRequest($action);
 
-        echo 'BusinessBase中的onRequest'.PHP_EOL;
-
         return true;
+    }
+
+    //还有afterAction
+    public function afterAction(?string $actionName): void
+    {
+        parent::afterAction($actionName);
     }
 }
