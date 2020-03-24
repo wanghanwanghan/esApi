@@ -32,6 +32,7 @@ class TestController extends BusinessBase
 
         $res=Fahai::getInstance()->send($url,$data);
 
+        $res=json_decode($res,1);
 
 
 
