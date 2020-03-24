@@ -23,7 +23,7 @@ class Router extends AbstractRouter
 
     private function routeInBusiness(RouteCollector $routeCollector)
     {
-        $routeCollector->addRoute(['GET','POST'],'/Business/Test/TestController','index');
+        $routeCollector->addRoute(['GET','POST'],'/Business/Test/TestController/index','handler');
 
         return true;
     }
