@@ -25,7 +25,7 @@ class TestController extends BusinessBase
 
         $rt=time()*1000;
 
-        $sign_num=md5('25DwLghyWYbHM9P0OjwW',$rt);
+        $sign_num=md5('25DwLghyWYbHM9P0OjwW'.$rt);
 
         $json_data=[
             'dataType'=>'satparty_qs',
@@ -47,9 +47,9 @@ class TestController extends BusinessBase
         curl_setopt($curl,CURLOPT_URL,$url);
         curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,FALSE);
         curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,FALSE);
-        curl_setopt($curl,CURLOPT_POST, 1);
-        curl_setopt($curl,CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl,CURLOPT_POST,1);
+        curl_setopt($curl,CURLOPT_POSTFIELDS,http_build_query($data));
+        curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
         $output=curl_exec($curl);
         curl_close($curl);
 
