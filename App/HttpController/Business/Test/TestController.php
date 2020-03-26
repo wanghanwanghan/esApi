@@ -65,7 +65,7 @@ class TestController extends BusinessBase
         {
             $obj=Manager::getInstance()->get('project')->getObj();
 
-            $obj->queryBuilder()->rawQuery($sql);
+            $obj->rawQuery($sql);
 
             Manager::getInstance()->get('project')->recycleObj($obj);
 
