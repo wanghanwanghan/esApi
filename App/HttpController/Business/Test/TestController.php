@@ -40,20 +40,6 @@ class TestController extends BusinessBase
 
         $res=['wanghan',$this->request()->getHeaders()];
 
-
-
-
-        for ($i=50000;$i--;)
-        {
-            go(function () use ($i){
-                WriteLog::getInstance()->writeLog($i);
-            });
-        }
-
-
-
-
-
         $this->writeJson(200,$res,'suc');
 
 

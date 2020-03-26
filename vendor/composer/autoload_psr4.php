@@ -24,6 +24,8 @@ return array(
     'EasySwoole\\Task\\' => array($vendorDir . '/easyswoole/task/src'),
     'EasySwoole\\Spl\\Test\\' => array($vendorDir . '/easyswoole/spl/test'),
     'EasySwoole\\Spl\\' => array($vendorDir . '/easyswoole/spl/src'),
+    'EasySwoole\\Session\\Test\\' => array($vendorDir . '/easyswoole/session/tests'),
+    'EasySwoole\\Session\\' => array($vendorDir . '/easyswoole/session/src'),
     'EasySwoole\\Redis\\' => array($vendorDir . '/easyswoole/redis/src'),
     'EasySwoole\\RedisPool\\' => array($vendorDir . '/easyswoole/redis-pool/src'),
     'EasySwoole\\Pool\\' => array($vendorDir . '/easyswoole/pool/src'),

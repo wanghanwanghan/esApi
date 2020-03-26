@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d63a0ba884d9cc5a18b6fdaae465f06",
+    "content-hash": "3f70126b7e56d6ebf98ae304b829df92",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -674,6 +674,62 @@
                 "swoole"
             ],
             "time": "2020-03-09T07:04:44+00:00"
+        },
+        {
+            "name": "easyswoole/session",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/session.git",
+                "reference": "08425f454570e338639869c8e4367ab9ba2f170c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/session/zipball/08425f454570e338639869c8e4367ab9ba2f170c",
+                "reference": "08425f454570e338639869c8e4367ab9ba2f170c",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "easyswoole/component": "^2.1",
+                "easyswoole/spl": "^1.3",
+                "easyswoole/utility": "^1.1",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "easyswoole/swoole-ide-helper": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\Session\\": "src/",
+                    "EasySwoole\\Session\\Test\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "YF",
+                    "email": "291323003@qq.com"
+                }
+            ],
+            "description": "easyswoole component",
+            "homepage": "https://www.easyswoole.com/",
+            "keywords": [
+                "async",
+                "easyswoole",
+                "framework",
+                "swoole"
+            ],
+            "time": "2020-03-19T08:40:22+00:00"
         },
         {
             "name": "easyswoole/spl",
@@ -1860,7 +1916,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-curl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

@@ -11,6 +11,8 @@ use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
+use EasySwoole\Session\Session;
+use EasySwoole\Session\SessionFileHandler;
 
 class EasySwooleEvent implements Event
 {
@@ -33,10 +35,28 @@ class EasySwooleEvent implements Event
         Crontab::getInstance()->addTask(TestCrontab::class);
 
 
+        //可以自己实现一个标准的session handler
+        $handler = new SessionFileHandler(EASYSWOOLE_TEMP_DIR);
+        //表示cookie name   还有save path
+        Session::getInstance($handler,'easy_session','/root/work/esApi/Temp');
+
+
+
     }
 
     public static function onRequest(Request $request, Response $response): bool
     {
+        $cookie=$request->getCookieParams('easy_session');
+
+        if(empty($cookie))
+        {
+            $sid = Session::getInstance()->sessionId();
+            $response->setCookie('easy_session',$sid);
+        }else
+        {
+            Session::getInstance()->sessionId($cookie);
+        }
+
         return true;
     }
 

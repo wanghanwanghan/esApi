@@ -53,6 +53,8 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
             'EasySwoole\\Task\\' => 16,
             'EasySwoole\\Spl\\Test\\' => 20,
             'EasySwoole\\Spl\\' => 15,
+            'EasySwoole\\Session\\Test\\' => 24,
+            'EasySwoole\\Session\\' => 19,
             'EasySwoole\\Redis\\' => 17,
             'EasySwoole\\RedisPool\\' => 21,
             'EasySwoole\\Pool\\' => 16,
@@ -153,6 +155,14 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'EasySwoole\\Spl\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/spl/src',
+        ),
+        'EasySwoole\\Session\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/session/tests',
+        ),
+        'EasySwoole\\Session\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/session/src',
         ),
         'EasySwoole\\Redis\\' => 
         array (
