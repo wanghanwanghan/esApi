@@ -49,6 +49,7 @@ class EasySwooleEvent implements Event
         $cookie=$request->getCookieParams('easy_session');
 
         var_dump($cookie);
+        var_dump('wanghan');
 
         if(empty($cookie))
         {

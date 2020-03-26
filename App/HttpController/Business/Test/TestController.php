@@ -40,8 +40,6 @@ class TestController extends BusinessBase
 
         $res=['wanghan',$this->request()->getHeaders()];
 
-        var_dump($res);
-
         $this->writeJson(200,$res,'suc');
 
         return true;
