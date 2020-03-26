@@ -4,6 +4,7 @@ namespace App\HttpController\Business\Test;
 
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Server\DataSource\Fahai;
+use App\HttpController\Server\WriteLog;
 use EasySwoole\DDL\Blueprint\Table;
 use EasySwoole\DDL\DDLBuilder;
 use EasySwoole\DDL\Enum\Character;
@@ -38,6 +39,13 @@ class TestController extends BusinessBase
         //$res=Fahai::getInstance()->send($url,$data);
 
         $res=['wanghan',$this->request()->getHeaders()];
+
+
+
+        WriteLog::getInstance()->writeLog();
+
+
+
 
 
         $this->writeJson(200,$res,'suc');

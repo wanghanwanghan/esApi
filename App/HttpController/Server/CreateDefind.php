@@ -37,6 +37,15 @@ class CreateDefind
         define('VIDEOPATH',$dir);
     }
 
+    private function log()
+    {
+        $dir=$this->rootPath.'Log'.DIRECTORY_SEPARATOR;
+
+        $this->createDir($dir);
+
+        define('LOGPATH',$dir);
+    }
+
     private function createDir($dir)
     {
         if (!is_dir($dir)) mkdir($dir,0777);
@@ -50,6 +59,7 @@ class CreateDefind
         $this->img();
         $this->file();
         $this->video();
+        $this->log();
 
         return true;
     }
