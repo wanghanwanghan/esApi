@@ -33,7 +33,7 @@ class WriteLog extends ServerBase
             $path.=DIRECTORY_SEPARATOR;
         }
 
-        var_dump(Logger::getInstance()->log('log level info',Logger::LOG_LEVEL_INFO,'DEBUG'));
+        Logger::getInstance()->log('log level info',Logger::LOG_LEVEL_INFO,'DEBUG');
 
         return true;
     }
