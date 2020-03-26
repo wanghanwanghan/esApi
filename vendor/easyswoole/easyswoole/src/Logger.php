@@ -24,7 +24,6 @@ class Logger implements LoggerInterface
     function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
-        var_dump($logger);
         $this->callback = new Event();
     }
     

@@ -2,8 +2,8 @@
 
 namespace App\HttpController\Server;
 
+use Carbon\Carbon;
 use EasySwoole\Component\Singleton;
-use EasySwoole\EasySwoole\Logger;
 
 class WriteLog extends ServerBase
 {
@@ -16,12 +16,14 @@ class WriteLog extends ServerBase
         'danger',
     ];
 
-    public function writeLog($type='info',$content='',$path='',$logFileName='run.log')
+    public function writeLog($content='',$type='info',$path='',$logFileName='')
     {
-        if (!in_array(strtolower($type),$this->type)) return true;
-
         //非字符串的内容处理一下
         if (!empty($content) && !is_string($content)) $content=json_encode($content);
+
+        if (!in_array(strtolower($type),$this->type)) return true;
+
+        $content='['.Carbon::now()->format('Y-m-d H:i:s').'] ['.strtoupper($type).'] : '.$content;
 
         if (empty($path))
         {
@@ -33,10 +35,13 @@ class WriteLog extends ServerBase
             $path.=DIRECTORY_SEPARATOR;
         }
 
-        Logger::getInstance()->log('log level info',Logger::LOG_LEVEL_INFO,'DEBUG');
+        if (empty($logFileName)) $logFileName='run.log.'.Carbon::now()->format('Ymd');
+
+        file_put_contents($path.$logFileName,$content,FILE_APPEND|LOCK_EX);
 
         return true;
     }
+
 
 
 
