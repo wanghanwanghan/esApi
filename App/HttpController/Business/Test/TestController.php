@@ -43,7 +43,7 @@ class TestController extends BusinessBase
 
 
 
-        for ($i=400;$i--;)
+        for ($i=5000;$i--;)
         {
             go(function () use ($i){
                 WriteLog::getInstance()->writeLog($i);
