@@ -63,17 +63,17 @@
     },
     {
         "name": "easyswoole/component",
-        "version": "2.1.0",
-        "version_normalized": "2.1.0.0",
+        "version": "2.1.5",
+        "version_normalized": "2.1.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/easy-swoole/component.git",
-            "reference": "eeca15d97a475424859662ca856a0ca2986a7ec1"
+            "reference": "1a45d782f5c5684d244c4fb28e8aeea571487725"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/easy-swoole/component/zipball/eeca15d97a475424859662ca856a0ca2986a7ec1",
-            "reference": "eeca15d97a475424859662ca856a0ca2986a7ec1",
+            "url": "https://api.github.com/repos/easy-swoole/component/zipball/1a45d782f5c5684d244c4fb28e8aeea571487725",
+            "reference": "1a45d782f5c5684d244c4fb28e8aeea571487725",
             "shasum": "",
             "mirrors": [
                 {
@@ -93,7 +93,7 @@
             "easyswoole/phpunit": "^1.0",
             "easyswoole/swoole-ide-helper": "^1.2"
         },
-        "time": "2020-02-13T03:40:39+00:00",
+        "time": "2020-03-19T05:52:07+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -102,7 +102,7 @@
                 "EasySwoole\\Component\\Tests\\": "Tests/"
             }
         },
-        "notification-url": "https://repo.packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache-2.0"
         ],
@@ -123,17 +123,17 @@
     },
     {
         "name": "easyswoole/config",
-        "version": "1.0.3",
-        "version_normalized": "1.0.3.0",
+        "version": "1.0.6",
+        "version_normalized": "1.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/easy-swoole/config.git",
-            "reference": "7d2754ed63c961d53ed33a69fb92de26e4914e26"
+            "reference": "bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/easy-swoole/config/zipball/7d2754ed63c961d53ed33a69fb92de26e4914e26",
-            "reference": "7d2754ed63c961d53ed33a69fb92de26e4914e26",
+            "url": "https://api.github.com/repos/easy-swoole/config/zipball/bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6",
+            "reference": "bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6",
             "shasum": "",
             "mirrors": [
                 {
@@ -150,7 +150,7 @@
             "easyswoole/phpunit": "^1.0",
             "easyswoole/swoole-ide-helper": "^1.2"
         },
-        "time": "2019-07-30T03:08:09+00:00",
+        "time": "2020-03-13T03:27:30+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -159,7 +159,7 @@
                 "EasySwoole\\Config\\Test\\": "tests/"
             }
         },
-        "notification-url": "https://repo.packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache-2.0"
         ],
@@ -466,17 +466,17 @@
     },
     {
         "name": "easyswoole/mysqli",
-        "version": "2.2.3",
-        "version_normalized": "2.2.3.0",
+        "version": "2.2.6",
+        "version_normalized": "2.2.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/easy-swoole/mysqli.git",
-            "reference": "d44503d2d0bbb2cf2dde7bb91bf1fdb3bf55ac8b"
+            "reference": "177579daeaa3824cdf043035121224870fae57f3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/easy-swoole/mysqli/zipball/d44503d2d0bbb2cf2dde7bb91bf1fdb3bf55ac8b",
-            "reference": "d44503d2d0bbb2cf2dde7bb91bf1fdb3bf55ac8b",
+            "url": "https://api.github.com/repos/easy-swoole/mysqli/zipball/177579daeaa3824cdf043035121224870fae57f3",
+            "reference": "177579daeaa3824cdf043035121224870fae57f3",
             "shasum": "",
             "mirrors": [
                 {
@@ -492,7 +492,7 @@
             "easyswoole/phpunit": "^1.0",
             "easyswoole/swoole-ide-helper": "^1.2"
         },
-        "time": "2020-02-17T05:26:33+00:00",
+        "time": "2020-03-13T07:20:33+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -501,7 +501,7 @@
                 "EasySwoole\\Mysqli\\Tests\\": "tests/"
             }
         },
-        "notification-url": "https://repo.packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache-2.0"
         ],
@@ -580,17 +580,17 @@
     },
     {
         "name": "easyswoole/redis",
-        "version": "1.1.6",
-        "version_normalized": "1.1.6.0",
+        "version": "1.1.13",
+        "version_normalized": "1.1.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/easy-swoole/redis.git",
-            "reference": "a788b68947ff59bbcef1a1e09dc7891e7525cc49"
+            "reference": "a5d41750bde455408ce0495ed5d5423d287efca3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/easy-swoole/redis/zipball/a788b68947ff59bbcef1a1e09dc7891e7525cc49",
-            "reference": "a788b68947ff59bbcef1a1e09dc7891e7525cc49",
+            "url": "https://api.github.com/repos/easy-swoole/redis/zipball/a5d41750bde455408ce0495ed5d5423d287efca3",
+            "reference": "a5d41750bde455408ce0495ed5d5423d287efca3",
             "shasum": "",
             "mirrors": [
                 {
@@ -608,7 +608,7 @@
             "easyswoole/phpunit": ">=1.0.0",
             "easyswoole/swoole-ide-helper": "^1.2"
         },
-        "time": "2020-01-18T04:39:26+00:00",
+        "time": "2020-03-13T14:05:23+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -616,7 +616,7 @@
                 "EasySwoole\\Redis\\": "src/"
             }
         },
-        "notification-url": "https://repo.packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache-2.0"
         ],
@@ -809,17 +809,17 @@
     },
     {
         "name": "easyswoole/task",
-        "version": "1.0.5",
-        "version_normalized": "1.0.5.0",
+        "version": "1.0.9",
+        "version_normalized": "1.0.9.0",
         "source": {
             "type": "git",
             "url": "https://github.com/easy-swoole/task.git",
-            "reference": "a58f85a8b2f552b805c62c99904d4f25940d868d"
+            "reference": "e9a863cb2adab31efebdced375cedecb5824be64"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/easy-swoole/task/zipball/a58f85a8b2f552b805c62c99904d4f25940d868d",
-            "reference": "a58f85a8b2f552b805c62c99904d4f25940d868d",
+            "url": "https://api.github.com/repos/easy-swoole/task/zipball/e9a863cb2adab31efebdced375cedecb5824be64",
+            "reference": "e9a863cb2adab31efebdced375cedecb5824be64",
             "shasum": "",
             "mirrors": [
                 {
@@ -836,7 +836,7 @@
         "require-dev": {
             "easyswoole/swoole-ide-helper": "^1.0"
         },
-        "time": "2019-10-15T07:14:36+00:00",
+        "time": "2020-03-07T15:31:07+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -844,7 +844,7 @@
                 "EasySwoole\\Task\\": "src/"
             }
         },
-        "notification-url": "https://repo.packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache-2.0"
         ],
@@ -1305,17 +1305,17 @@
     },
     {
         "name": "nesbot/carbon",
-        "version": "2.31.0",
-        "version_normalized": "2.31.0.0",
+        "version": "2.32.0",
+        "version_normalized": "2.32.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d"
+            "reference": "7410a349613bf32d02d8aaed1c669698ddd2b718"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
-            "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7410a349613bf32d02d8aaed1c669698ddd2b718",
+            "reference": "7410a349613bf32d02d8aaed1c669698ddd2b718",
             "shasum": "",
             "mirrors": [
                 {
@@ -1330,6 +1330,7 @@
             "symfony/translation": "^3.4 || ^4.0 || ^5.0"
         },
         "require-dev": {
+            "doctrine/orm": "^2.7",
             "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
             "kylekatarnls/multi-tester": "^1.1",
             "phpmd/phpmd": "^2.8",
@@ -1337,7 +1338,7 @@
             "phpunit/phpunit": "^7.5 || ^8.0",
             "squizlabs/php_codesniffer": "^3.4"
         },
-        "time": "2020-03-01T11:11:58+00:00",
+        "time": "2020-03-24T16:01:47+00:00",
         "bin": [
             "bin/carbon"
         ],
