@@ -10,6 +10,7 @@ use EasySwoole\DDL\DDLBuilder;
 use EasySwoole\DDL\Enum\Character;
 use EasySwoole\DDL\Enum\Engine;
 use EasySwoole\Pool\Manager;
+use EasySwoole\Session\Session;
 
 class TestController extends BusinessBase
 {
@@ -74,6 +75,21 @@ class TestController extends BusinessBase
         }
 
         $this->writeJson(200,'ok','success');
+
+        return true;
+    }
+
+    public function sessionTest()
+    {
+        if(Session::getInstance()->get('a'))
+        {
+            var_dump(Session::getInstance()->get('a'));
+        }else
+        {
+            Session::getInstance()->set('a',time());
+        }
+
+        var_dump(Session::getInstance()->get('a'));
 
         return true;
     }
