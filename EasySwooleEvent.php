@@ -48,6 +48,8 @@ class EasySwooleEvent implements Event
     {
         $cookie=$request->getCookieParams('easy_session');
 
+        var_dump($cookie);
+
         if(empty($cookie))
         {
             $sid = Session::getInstance()->sessionId();
