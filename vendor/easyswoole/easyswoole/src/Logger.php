@@ -31,8 +31,8 @@ class Logger implements LoggerInterface
     {
         $str = $this->logger->log($msg,$logLevel,$category);
         $calls = $this->callback->all();
+        var_dump($calls);
         foreach ($calls as $call){
-            var_dump($call,$msg,$logLevel,$category);
             call_user_func($call,$msg,$logLevel,$category);
         }
         return $str;
