@@ -26,6 +26,7 @@ class Router extends AbstractRouter
     private function routeInTest(RouteCollector $routeCollector)
     {
         $routeCollector->addRoute(['GET','POST'],'/test','/Business/Test/TestController/index');
+        $routeCollector->addRoute(['GET','POST'],'/mysqltest','/Business/Test/TestController/mysqlTest');
 
         return true;
     }
