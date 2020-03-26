@@ -6,6 +6,7 @@ use App\HttpController\Server\CreateDefind;
 use App\HttpController\Server\CreateMysqlPoolForLogDb;
 use App\HttpController\Server\CreateMysqlPoolForProjectDb;
 use App\HttpController\Server\CreateRedisPool;
+use App\HttpController\Server\SessionHandler;
 use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -36,7 +37,8 @@ class EasySwooleEvent implements Event
 
 
         //可以自己实现一个标准的session handler
-        $handler = new SessionFileHandler(EASYSWOOLE_TEMP_DIR);
+        //$handler=new SessionFileHandler(EASYSWOOLE_TEMP_DIR);
+        $handler=new SessionHandler();
         //表示cookie name   还有save path
         Session::getInstance($handler,'easy_session','../session');
 
@@ -50,7 +52,7 @@ class EasySwooleEvent implements Event
 
         if(empty($cookie))
         {
-            $sid = Session::getInstance()->sessionId();
+            $sid=Session::getInstance()->sessionId();
             $response->setCookie('easy_session',$sid);
         }else
         {

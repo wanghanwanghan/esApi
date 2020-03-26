@@ -46,6 +46,15 @@ class CreateDefind
         define('LOGPATH',$dir);
     }
 
+    private function session()
+    {
+        $dir=$this->rootPath.'session'.DIRECTORY_SEPARATOR;
+
+        $this->createDir($dir);
+
+        define('SESSION',$dir);
+    }
+
     private function createDir($dir)
     {
         if (!is_dir($dir)) mkdir($dir,0777);
@@ -60,6 +69,7 @@ class CreateDefind
         $this->file();
         $this->video();
         $this->log();
+        $this->session();
 
         return true;
     }
