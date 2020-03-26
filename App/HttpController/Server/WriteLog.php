@@ -23,7 +23,7 @@ class WriteLog extends ServerBase
 
         if (!in_array(strtolower($type),$this->type)) return true;
 
-        $content='['.Carbon::now()->format('Y-m-d H:i:s').'] ['.strtoupper($type).'] : '.$content;
+        $content='['.Carbon::now()->format('Y-m-d H:i:s').'] ['.strtoupper($type).'] : '.$content.PHP_EOL;
 
         if (empty($path))
         {

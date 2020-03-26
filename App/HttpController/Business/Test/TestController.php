@@ -42,7 +42,7 @@ class TestController extends BusinessBase
 
 
 
-        WriteLog::getInstance()->writeLog();
+        WriteLog::getInstance()->writeLog('段冉');
 
 
 
