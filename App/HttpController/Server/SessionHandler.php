@@ -2,7 +2,6 @@
 
 namespace App\HttpController\Server;
 
-use EasySwoole\Pool\Manager;
 use EasySwoole\RedisPool\Redis;
 
 class SessionHandler implements \SessionHandlerInterface

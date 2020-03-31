@@ -5,6 +5,7 @@ namespace App\HttpController\Business\Test;
 use App\HttpController\Business\BusinessBase;
 use App\HttpController\Server\DataSource\Fahai;
 use App\HttpController\Server\WriteLog;
+use EasySwoole\Component\Process\Socket\TcpProcessConfig;
 use EasySwoole\DDL\Blueprint\Table;
 use EasySwoole\DDL\DDLBuilder;
 use EasySwoole\DDL\Enum\Character;
@@ -94,5 +95,21 @@ class TestController extends BusinessBase
         return true;
     }
 
+    public function unixTimeParse()
+    {
+        $param=$this->request()->getRequestParam();
+
+        $ut=trim($param['ut']);
+
+        if (is_numeric($ut))
+        {
+            $res=date('Y-m-d H:i:s',$ut);
+        }else
+        {
+            $res=strtotime($ut);
+        }
+
+        return $this->writeJson(200,$res,'success');
+    }
 
 }
