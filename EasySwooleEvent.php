@@ -7,6 +7,7 @@ use App\HttpController\Server\CreateMysqlPoolForLogDb;
 use App\HttpController\Server\CreateMysqlPoolForProjectDb;
 use App\HttpController\Server\CreateRedisPool;
 use App\HttpController\Server\SessionHandler;
+use App\Process\TestProcess;
 use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -42,6 +43,14 @@ class EasySwooleEvent implements Event
         //表示cookie name   还有save path
         Session::getInstance($handler,'easy_session','../session');
 
+
+        //自定义进程
+        $processConfig = new \EasySwoole\Component\Process\Config();
+
+        $processConfig->setProcessName('wanghan_p');
+        $processConfig->setArg(['arg1'=>time()]);
+
+        ServerManager::getInstance()->getSwooleServer()->addProcess((new TestProcess($processConfig))->getProcess());
 
 
     }

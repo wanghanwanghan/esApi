@@ -112,4 +112,8 @@ class TestController extends BusinessBase
         return $this->writeJson(200,$res,'success');
     }
 
+    public function avatarParse()
+    {
+
+    }
 }

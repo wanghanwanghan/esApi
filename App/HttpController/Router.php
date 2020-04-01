@@ -29,6 +29,7 @@ class Router extends AbstractRouter
         $routeCollector->addRoute(['GET','POST'],'/mysqltest','/Business/Test/TestController/mysqlTest');
         $routeCollector->addRoute(['GET','POST'],'/sessiontest','/Business/Test/TestController/sessionTest');
         $routeCollector->addRoute(['GET','POST'],'/ut','/Business/Test/TestController/unixTimeParse');
+        $routeCollector->addRoute(['GET','POST'],'/avatar','/Business/Test/TestController/avatarParse');
 
 
         return true;
