@@ -43,11 +43,10 @@ class EasySwooleEvent implements Event
         //表示cookie name   还有save path
         Session::getInstance($handler,'easy_session','../session');
 
-
         //自定义进程
         $processConfig = new \EasySwoole\Component\Process\Config();
 
-        $processConfig->setProcessName('wanghan_p');
+        $processConfig->setProcessName('esApi_test_process');
         $processConfig->setArg(['arg1'=>time()]);
 
         ServerManager::getInstance()->getSwooleServer()->addProcess((new TestProcess($processConfig))->getProcess());

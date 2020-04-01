@@ -2,6 +2,7 @@
 
 namespace App\Process;
 
+use Carbon\Carbon;
 use EasySwoole\Component\Process\AbstractProcess;
 
 class TestProcess extends AbstractProcess
@@ -9,8 +10,12 @@ class TestProcess extends AbstractProcess
     protected function run($arg)
     {
         //当进程启动后，会执行的回调
-        var_dump($this->getProcessName()." run");
-        var_dump($arg);
+        while (true)
+        {
+            var_dump('自定义进程: '.$this->getProcessName().' 运行，时间: '.Carbon::now()->format('Y-m-d H:i:s'));
+
+            sleep(30);
+        }
     }
 
     protected function onPipeReadable(\Swoole\Process $process)
