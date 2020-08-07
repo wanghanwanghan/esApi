@@ -511,20 +511,19 @@ class QueryBuilder
         $this->reset();
         return $this;
     }
-
+    //多行插入为INSERT INTO ... VALUES (...) , (...)
     public function insertAll($tableName, $insertData, $option = [])
     {
         $allowFields = $option['field'] ?? [];
-
-        foreach ($insertData as $data){
-            // 过滤掉不允许的字段
-            if (!empty($allowFields)) {
-                foreach ($data as $data_k => $data_v){
-                    if (!in_array($data_v, $allowFields)){
-                        unset($data[$data_k]);
-                    }
-                }
-            }
+		// 过滤掉不允许的字段
+		if (!empty($allowFields)) {
+			foreach ($insertData as $key => $data){
+				foreach ($data as $data_k => $data_v){
+					if (!in_array($data_k, $allowFields)){
+						unset($insertData[$key][$data_k]);
+					}
+				}
+			}
         }
 
         $this->_buildInsert($tableName, $insertData, isset($option['replace']) ? 'REPLACE' : 'INSERT');
@@ -591,7 +590,6 @@ class QueryBuilder
      * @param array $multiInsertData 需要插入的数据
      * @param array|null $dataKeys 插入数据对应的字段名
      * @return array|bool
-     * TODO 多行插入应优化为INSERT INTO ... VALUES (...) , (...)
      */
     public function insertMulti($tableName, array $multiInsertData, array $dataKeys = null)
     {

@@ -7,27 +7,29 @@ namespace Composer\Autoload;
 class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
 {
     public static $files = array (
-        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Symfony\\Polyfill\\Util\\' => 22,
-            'Symfony\\Polyfill\\Php56\\' => 23,
+            'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Translation\\' => 30,
-            'SuperClosure\\' => 13,
         ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
-            'PhpParser\\' => 10,
+        ),
+        'O' => 
+        array (
+            'Opis\\Closure\\' => 13,
         ),
         'I' => 
         array (
@@ -47,16 +49,17 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         ),
         'E' => 
         array (
-            'EasySwoole\\Validate\\' => 20,
             'EasySwoole\\Utility\\' => 19,
             'EasySwoole\\Trigger\\' => 19,
             'EasySwoole\\Task\\' => 16,
             'EasySwoole\\Spl\\Test\\' => 20,
             'EasySwoole\\Spl\\' => 15,
+            'EasySwoole\\Socket\\' => 18,
             'EasySwoole\\Session\\Test\\' => 24,
             'EasySwoole\\Session\\' => 19,
             'EasySwoole\\Redis\\' => 17,
             'EasySwoole\\RedisPool\\' => 21,
+            'EasySwoole\\Pool\\Tests\\' => 22,
             'EasySwoole\\Pool\\' => 16,
             'EasySwoole\\Mysqli\\Tests\\' => 24,
             'EasySwoole\\Mysqli\\' => 18,
@@ -84,13 +87,9 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Util\\' => 
+        'Symfony\\Polyfill\\Php80\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-util',
-        ),
-        'Symfony\\Polyfill\\Php56\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php56',
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -104,17 +103,13 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'SuperClosure\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jeremeamia/superclosure/src',
-        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'PhpParser\\' => 
+        'Opis\\Closure\\' => 
         array (
-            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+            0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
         'Intervention\\Image\\' => 
         array (
@@ -131,10 +126,6 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'EasySwoole\\Validate\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/easyswoole/validate/src',
         ),
         'EasySwoole\\Utility\\' => 
         array (
@@ -156,6 +147,10 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         array (
             0 => __DIR__ . '/..' . '/easyswoole/spl/src',
         ),
+        'EasySwoole\\Socket\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/socket/src',
+        ),
         'EasySwoole\\Session\\Test\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/session/tests',
@@ -171,6 +166,10 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'EasySwoole\\RedisPool\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/redis-pool/src',
+        ),
+        'EasySwoole\\Pool\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/pool/tests',
         ),
         'EasySwoole\\Pool\\' => 
         array (
@@ -239,8 +238,13 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App',
-            1 => __DIR__ . '/..' . '/easyswoole/easyswoole/App',
         ),
+    );
+
+    public static $classMap = array (
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -248,6 +252,7 @@ class ComposerStaticInit9ae387773b6f4f245cb137df191196f0
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9ae387773b6f4f245cb137df191196f0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9ae387773b6f4f245cb137df191196f0::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9ae387773b6f4f245cb137df191196f0::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -8,6 +8,7 @@ use App\HttpController\Server\CreateMysqlPoolForProjectDb;
 use App\HttpController\Server\CreateRedisPool;
 use App\HttpController\Server\SessionHandler;
 use App\Process\TestProcess;
+use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -50,6 +51,7 @@ class EasySwooleEvent implements Event
         $processConfig->setArg(['arg1'=>time()]);
 
         ServerManager::getInstance()->getSwooleServer()->addProcess((new TestProcess($processConfig))->getProcess());
+
 
 
     }

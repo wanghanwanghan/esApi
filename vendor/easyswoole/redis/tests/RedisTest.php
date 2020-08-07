@@ -10,6 +10,7 @@ namespace Test;
 
 use EasySwoole\Redis\Client;
 use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\Redis\Exception\RedisException;
 use EasySwoole\Redis\Redis;
 use PHPUnit\Framework\TestCase;
 use Swoole\Coroutine;
@@ -76,6 +77,7 @@ class RedisTest extends TestCase
         $redis = $this->redis;
         $key = 'test123213Key';
         $redis->select(0);
+        $redis->flushAll();
         $redis->set($key, 123);
         $data = $redis->dump($key);
         $this->assertTrue(!!$data);
@@ -90,6 +92,13 @@ class RedisTest extends TestCase
         $this->assertEquals(1, $data);
         Coroutine::sleep(2);
         $this->assertEquals(0, $this->redis->exists($key));
+
+        $redis->set($key, 123);
+        $data = $this->redis->pExpire($key, 1000);
+        $this->assertEquals(1, $data);
+        $this->assertEquals(123, $this->redis->get($key));
+        Coroutine::sleep(2);
+        $this->assertEquals(0, $this->redis->pExpire($key));
 
         $redis->expireAt($key, 1 * 100);
         Coroutine::sleep(0.1);
@@ -125,10 +134,9 @@ class RedisTest extends TestCase
         $this->assertTrue(!!$data);
         $data = $redis->rename($key, $key . 'new');
         $this->assertTrue($data);
-        $this->assertEquals(1, $redis->expire($key . 'new'));
-        $this->assertEquals(0, $redis->expire($key));
 
-        $data = $redis->renameNx($key, $key . 'new');
+        $redis->set($key.'old',1);
+        $data = $redis->renameNx($key.'old', $key . 'new');
         $this->assertEquals(0, $data);
         $redis->renameNx($key . 'new', $key);
         $data = $redis->renameNx($key, $key . 'new');
@@ -1486,6 +1494,155 @@ class RedisTest extends TestCase
     }
 
     /**
+     * Stream 测试
+     * @author gaobinzhan <gaobinzhan@gmail.com>
+     */
+    function testStream(){
+        $redis = $this->redis;
+
+        $id = $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $this->assertIsString($id);
+
+        $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy'], 1);
+        $length = $redis->xLen('test');
+        $this->assertEquals(1, $length);
+
+        $ids[] = $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $ids[] = $redis->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        $delNum = $redis->xDel('test',$ids);
+        $this->assertEquals(2, $delNum);
+
+        $result = $redis->xRange('test','-','+',0);
+        $this->assertEmpty($result);
+
+        $result = $redis->xRange('test','-','+');
+        $this->assertIsArray($result);
+
+        $result = $redis->xRevRange('test','+','-',0);
+        $this->assertEmpty($result);
+
+        $result = $redis->xRevRange('test','+','-');
+        $this->assertIsArray($result);
+
+        $redis->del('test1');
+        $redis->xAdd('test1','*',['name' => 'gaobinzhan', 'sex' => 'boy']);
+        $redis->xAdd('test1','*',['name' => 'gaobinzhan', 'sex' => 'boy']);
+        $redis->xAdd('test1','*',['name' => 'gaobinzhan', 'sex' => 'boy']);
+        $len = $redis->xTrim('test1',2);
+        $this->assertEquals(1, $len);
+
+        $result = $redis->xRead(['test1' => '0-0'],1,0);
+        $this->assertIsArray($result);
+        $this->assertCount(1,$result['test1']);
+
+        $result = $redis->xRead(['test1' => '0-0'],2,0);
+        $this->assertCount(2,$result['test1']);
+
+        $result = $redis->xRead(['test' => '$'],1,1000);
+        $this->assertFalse($result);
+
+        go(function (){
+            $result = (new Redis(new RedisConfig([
+                'host' => REDIS_HOST,
+                'port' => REDIS_PORT,
+                'auth' => REDIS_AUTH
+            ])))->xRead(['test' => '$'],1,1000);
+            $this->assertIsArray($result);
+        });
+
+        go(function (){
+            (new Redis(new RedisConfig([
+                'host' => REDIS_HOST,
+                'port' => REDIS_PORT,
+                'auth' => REDIS_AUTH
+            ])))->xAdd('test','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        });
+
+        $array = $redis->xGroup('HELP');
+        $this->assertIsArray($array);
+
+
+        $groupName = time();
+        $bool = $redis->xGroup('CREATE','mystream',$groupName,'$',true);
+        $this->assertTrue($bool);
+
+        $bool = $redis->xGroup('SETID','mystream',$groupName,0);
+        $this->assertTrue($bool);
+
+        $int = $redis->xGroup('DELCONSUMER','mystream',$groupName,1);
+        $this->assertEquals(0,$int);
+
+
+        $num = $redis->xGroup('DESTROY','mystream',$groupName);
+        $this->assertEquals(1,$num);
+
+        $array = $redis->xInfo('STREAM','mystream');
+        $this->assertIsArray($array);
+
+        $groupName =time();
+        $redis->xGroup('CREATE','mystream',$groupName,'$',true);
+        $array = $redis->xInfo('GROUPS','mystream');
+        $this->assertIsArray($array);
+
+        $array = $redis->xPending('mystream',$groupName);
+        $this->assertIsArray($array);
+
+        $array = $redis->xPending('mystream',$groupName,'-','+',10);
+        $this->assertIsArray($array);
+
+        $array = $redis->xPending('mystream',$groupName,'-','+',10,'consumer-123');
+        $this->assertIsArray($array);
+
+
+        $result = $redis->xReadGroup($groupName,'consumer-111',['mystream' => '>'],1,1000);
+        $this->assertFalse($result);
+
+        go(function () use ($groupName){
+            $result = (new Redis(new RedisConfig([
+                'host' => REDIS_HOST,
+                'port' => REDIS_PORT,
+                'auth' => REDIS_AUTH
+            ])))->xReadGroup($groupName,'consumer-111',['mystream' => '>'],1,1000);
+            $this->assertIsArray($result);
+        });
+
+        go(function (){
+            (new Redis(new RedisConfig([
+                'host' => REDIS_HOST,
+                'port' => REDIS_PORT,
+                'auth' => REDIS_AUTH
+            ])))->xAdd('mystream','*',['name'=>'gaobinzhan', 'sex'=>'boy']);
+        });
+
+        $redis->xAdd('mystream','*',['name' => 1]);
+        $num = $redis->xAck('mystream',$groupName,[0]);
+        $this->assertEquals(0,$num);
+
+        $result = $redis->xReadGroup($groupName,'consumer-111',['mystream' => '>'],1,1000);
+        $num = $redis->xAck('mystream',$groupName,array_keys($result['mystream']));
+        $this->assertEquals(1,$num);
+
+
+        $redis->xAdd('mystream','*',['name' => 1]);
+        $redis->xAdd('mystream','*',['name' => 1]);
+        $result = $redis->xReadGroup($groupName,'consumer-111',['mystream' => '>'],2,0);
+        $num = $redis->xAck('mystream',$groupName,array_keys($result['mystream']));
+        $this->assertEquals(2,$num);
+
+        $redis->xAdd('mystream','*',['name' => 1]);
+        $redis->xReadGroup($groupName,'consumer-111',['mystream' => '>'],2,0);
+        $result = $redis->xPending('mystream',$groupName,'-','+',2);
+        $ids[] = $result[0][0];
+        $ids[] = $result[1][0];
+        $array = $redis->xClaim('mystream',$groupName,'abc',2,$ids);
+        $this->assertIsArray($array);
+
+    }
+
+    /**
      * 基数统计 测试
      * testHyperLog
      * @author Tioncico
@@ -1780,13 +1937,17 @@ class RedisTest extends TestCase
         });
 
         $data = $redis->save();
-        $this->assertEquals(1, $data);
+        $this->assertTrue($data);
 
-//        $data = $redis->clientKill($data[0]['addr']);
-//        $this->assertTrue($data);
-//        $data = $redis->slowLog('get', 'a');
-//        var_dump($data,$redis->getErrorMsg());
-//        $this->assertTrue(!!$data);
+        $data = $redis->clientList();
+        $data = $redis->clientKill($data[0]['addr']);
+        $this->assertTrue($data);
+
+        try {
+            $redis->slowLog('get', 'a');
+        }catch (RedisException $exception){
+            $this->assertEquals('ERR value is not an integer or out of range',$exception->getMessage());
+        }
 
     }
 
